@@ -1,10 +1,19 @@
 import React from 'react';
 
+import classes from './Person.module.css';
+
 const person = (props) => {
+    const style = {
+        '@media (min-width: 500px)': {
+            width: '450px'
+        }
+    };
+
     return (
-        <div>
-            <p>Hi I am a {props.name}! And I have {props.age} </p>
+        <div className={classes.Person}>
+            <p onClick={props.click}>Hi I am a {props.name}! And I have {props.age} </p>
             <p>{props.children}</p>
+            <input type="text" onChange={props.changed} value={props.name} />
         </div>
     )
 }
